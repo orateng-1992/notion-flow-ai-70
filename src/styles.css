@@ -19,6 +19,8 @@
  */
 
 @theme inline {
+  --font-display: "Instrument Serif", Georgia, serif;
+  --font-sans: "Work Sans", system-ui, sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -62,24 +64,24 @@
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
+  --radius: 0.5rem;
+  --background: oklch(0.965 0.012 85);
+  --foreground: oklch(0.22 0.02 60);
+  --card: oklch(0.985 0.008 85);
   --card-foreground: oklch(0.129 0.042 264.695);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
+  --primary: oklch(0.42 0.09 150);
+  --primary-foreground: oklch(0.97 0.01 85);
   --secondary: oklch(0.968 0.007 247.896);
   --secondary-foreground: oklch(0.208 0.042 265.755);
   --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
+  --muted-foreground: oklch(0.5 0.02 60);
+  --accent: oklch(0.92 0.03 85);
   --accent-foreground: oklch(0.208 0.042 265.755);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
+  --border: oklch(0.86 0.02 80);
   --input: oklch(0.929 0.013 255.508);
   --ring: oklch(0.704 0.04 256.788);
   --chart-1: oklch(0.646 0.222 41.116);
@@ -141,4 +143,20 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
   }
+}
+
+@layer components {
+  .tool-tab { @apply flex shrink-0 items-center gap-3 rounded-md px-3 py-2 text-left text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-foreground; }
+  .tool-tab-active { @apply bg-primary text-primary-foreground hover:bg-primary hover:text-primary-foreground; }
+  .btn-primary { @apply rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90 disabled:opacity-40; }
+  .btn-secondary { @apply rounded-md border border-border px-3 py-1.5 text-xs font-medium hover:bg-accent; }
+  .prose-desk { @apply text-sm leading-relaxed; }
+  .prose-desk h1, .prose-desk h2, .prose-desk h3 { @apply mt-5 mb-2 font-display text-xl; }
+  .prose-desk p { @apply my-2; }
+  .prose-desk ul { @apply my-2 list-disc pl-5; }
+  .prose-desk ol { @apply my-2 list-decimal pl-5; }
+  .prose-desk strong { @apply font-semibold; }
+  .prose-desk table { @apply my-3 w-full border-collapse text-left; }
+  .prose-desk th { @apply border-b border-border py-2 pr-3 font-mono text-xs uppercase tracking-wider text-muted-foreground; }
+  .prose-desk td { @apply border-b border-border py-2 pr-3 align-top; }
 }
